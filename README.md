@@ -1,7 +1,5 @@
 # Zentro
 
-> A modern, real-time video calling web app built with Next.js, PeerJS, and Tailwind CSS.
-
 ## 🎥 Demo
 
 <!-- [![Zentro Video Demo](https://user-images.githubusercontent.com/your-github-username/zentro-demo.gif)](https://zentro-demo-link.com) -->
