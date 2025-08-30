@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { toast } from "sonner";
 
 export default function Home() {
   const router = useRouter();
@@ -38,13 +39,31 @@ export default function Home() {
               className="mb-6 w-80"
             />
             <div className="flex justify-center">
-              <Button onClick={joinRoom}>Join Room</Button>
+              <Button
+                onClick={() => {
+                  if (roomId) {
+                    toast.success("Joined room");
+                    joinRoom();
+                  } else {
+                    toast.error("Please provide a valid room id");
+                  }
+                }}
+              >
+                Join Room
+              </Button>
             </div>
 
             <Separator className="my-6" />
 
             <div className="flex justify-center">
-              <Button onClick={createAndJoin}>Create Room</Button>
+              <Button
+                onClick={() => {
+                  toast.success("Created room");
+                  createAndJoin();
+                }}
+              >
+                Create Room
+              </Button>
             </div>
           </CardContent>
         </Card>

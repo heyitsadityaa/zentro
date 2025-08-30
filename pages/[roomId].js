@@ -4,10 +4,11 @@ import useMediaStream from "@/hooks/useMediaStream";
 import usePeer from "@/hooks/usePeer";
 import usePlayer from "@/hooks/usePlayer";
 import { useEffect, useState } from "react";
-
+import { toast } from "sonner";
 import { useRouter } from "next/router";
 import Bottom from "@/components/Bottom/Bottom";
 import { cloneDeep } from "lodash";
+import CopySection from "@/components/copy-section";
 
 const Room = () => {
   const socket = useSocket();
@@ -131,17 +132,21 @@ const Room = () => {
         playing: true,
       },
     }));
+    socket.on("user-connected", (userId) => {
+      if (userId !== myId) {
+        toast.success(`User ${userId} joined the meeting`);
+      }
+    });
+    socket.on("user-leave", (userId) => {
+      if (userId !== myId) {
+        toast(`User ${userId} left the meeting`);
+      }
+    });
+    return () => {
+      socket.off("user-connected");
+      socket.off("user-leave");
+    };
   }, [myId, setPlayers, stream]);
-
-  // useEffect(() => {
-  //   console.log("userId", userId);
-  //   console.log("callerId", callerId);
-  //   console.log("myId", myId);
-  //   console.log("players", players);
-  //   console.log("nonHighlightedPlayers", nonHighlightedPlayers);
-  //   console.log("playerHighlighted", playerHighlighted);
-  //   console.log("roomId", roomId);
-  // }, []);
 
   return (
     <>
@@ -169,6 +174,7 @@ const Room = () => {
           );
         })}
       </div>
+      <CopySection roomId={roomId} />
       <Bottom
         muted={playerHighlighted?.muted}
         playing={playerHighlighted?.playing}
