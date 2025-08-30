@@ -2,7 +2,8 @@
 
 <div align="center">
 
-[Zentro Image](https://github.com/user-attachments/assets/33ee7c38-9c41-432c-826a-a294a7e2fd1c)
+<img src="https://github.com/user-attachments/assets/33ee7c38-9c41-432c-826a-a294a7e2fd1c" alt="Zentro Screenshot" width="600" />
+
 
 </div>
 
