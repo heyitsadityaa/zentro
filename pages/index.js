@@ -1,8 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
-
-import styles from "@/styles/home.module.css";
 import { useState } from "react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const router = useRouter();
@@ -21,21 +23,32 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.homeContainer}>
-      <h1>zentro</h1>
-      <div className={styles.enterRoom}>
-        <input
-          type="text"
-          placeholder="Enter Room Id"
-          value={roomId}
-          onChange={(e) => setRoomId(e?.target?.value)}
-        />
-        <button onClick={joinRoom}>Join Room</button>
+    <div className="h-screen">
+      <div className="flex items-center justify-center h-full">
+        <Card className="flex w-96 items-center flex-col">
+          <CardHeader>
+            Create or Join room
+          </CardHeader>
+          <CardContent className="">
+            <Input
+              type="text"
+              placeholder="Enter Room Id"
+              value={roomId}
+              onChange={(e) => setRoomId(e?.target?.value)}
+              className="mb-6 w-80"
+            />
+            <div className="flex justify-center">
+              <Button onClick={joinRoom}>Join Room</Button>
+            </div>
+
+            <Separator className="my-6" />
+
+            <div className="flex justify-center">
+              <Button onClick={createAndJoin}>Create Room</Button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
-      <span className={styles.separatorText}>
-        --------------- OR ---------------
-      </span>
-      <button onClick={createAndJoin}>Create a Room</button>
     </div>
   );
 }

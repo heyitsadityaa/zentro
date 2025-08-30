@@ -1,18 +1,19 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import styles from "@/components/player.module.css";
 import cx from "classnames";
 import { Mic, MicOff, UserSquare2 } from "lucide-react";
 
 const Player = (props) => {
   const { url, muted, playing, isActive } = props;
+
   return (
     <div
-      className={cx(styles.playerContainer, {
-        [styles.notActive]: !isActive,
-        [styles.active]: isActive,
-        [styles.notPlaying]: !playing,
-      })}
+      className={cx(
+        "relative overflow-hidden mb-5 h-full",
+        !isActive && "rounded-md h-min shadow-[0px_0px_11px_-1px_rgba(0,0,0,0.75)] w-[200px]",
+        isActive && "rounded-lg",
+        !playing && "flex items-center justify-center"
+      )}
     >
       {playing ? (
         <ReactPlayer
@@ -23,14 +24,14 @@ const Player = (props) => {
           height="100%"
         />
       ) : (
-        <UserSquare2 className={styles.user} size={isActive ? 400 : 150} />
+        <UserSquare2 className="text-white" size={isActive ? 400 : 150} />
       )}
 
       {!isActive ? (
         muted ? (
-          <MicOff className={styles.icon} size={20} />
+          <MicOff className="text-white absolute right-2 bottom-2" size={20} />
         ) : (
-          <Mic className={styles.icon} size={20} />
+          <Mic className="text-white absolute right-2 bottom-2" size={20} />
         )
       ) : undefined}
     </div>

@@ -5,7 +5,6 @@ import usePeer from "@/hooks/usePeer";
 import usePlayer from "@/hooks/usePlayer";
 import { useEffect, useState } from "react";
 
-import styles from "@/styles/room.module.css";
 import { useRouter } from "next/router";
 import Bottom from "@/components/Bottom/Bottom";
 import { cloneDeep } from "lodash";
@@ -146,7 +145,7 @@ const Room = () => {
 
   return (
     <>
-      <div className={styles.activePlayerContainer}>
+      <div className="absolute flex flex-col overflow-y-auto right-5 top-5 h-[calc(100vh-20px)]">
         {playerHighlighted && (
           <Player
             url={playerHighlighted.url}
@@ -156,7 +155,7 @@ const Room = () => {
           />
         )}
       </div>
-      <div className={styles.inActivePlayerContainer}>
+      <div className="absolute w-9/12 left-0 right-0 mx-auto top-5 bottom-[50px] h-[calc(100vh-20px-100px)]">
         {Object.keys(nonHighlightedPlayers).map((playerId) => {
           const { url, muted, playing } = nonHighlightedPlayers[playerId];
           return (
@@ -170,7 +169,6 @@ const Room = () => {
           );
         })}
       </div>
-      {/* <CopySection roomId={roomId}/> */}
       <Bottom
         muted={playerHighlighted?.muted}
         playing={playerHighlighted?.playing}
