@@ -1,14 +1,5 @@
 # Zentro
 
-<div align="center">
-
-<img src="https://github.com/user-attachments/assets/33ee7c38-9c41-432c-826a-a294a7e2fd1c" alt="Zentro Screenshot" width="600" />
-
-
-</div>
-
-## 🎥 Demo
-
 [Zentro Video Demo](https://github.com/user-attachments/assets/fafee7a1-da43-47ae-a7a4-3c25a6100ee1)
 
 ## 🚀 About
@@ -70,3 +61,10 @@ Zentro is a peer-to-peer video conferencing platform designed for seamless, low-
 - **UI Responsiveness:**
   - Tailwind utility classes ensure a responsive, accessible layout for all devices.
 
+---
+
+<div align="center">
+
+<img src="https://github.com/user-attachments/assets/33ee7c38-9c41-432c-826a-a294a7e2fd1c" alt="Zentro Screenshot" width="600" />
+
+</div>
