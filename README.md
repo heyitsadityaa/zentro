@@ -2,7 +2,7 @@
 
 ## 🎥 Demo
 
-<!-- [![Zentro Video Demo](https://user-images.githubusercontent.com/your-github-username/zentro-demo.gif)](https://zentro-demo-link.com) -->
+[Zentro Video Demo](https://github.com/user-attachments/assets/fafee7a1-da43-47ae-a7a4-3c25a6100ee1)
 
 ## 🚀 About
 
